@@ -11,54 +11,57 @@ public class Student91 {
 	int num;
 	Student91(){}
 	Student91(int num,String name,int kor,int eng,int mat){this.num=num;this.name=name;this.kor=kor;this.eng=eng;this.mat=mat;sumCalc();avgCalc();}
-	//Student91(String name,int kor,int eng,int mat,int sum,int avg){this.name=name;this.kor=kor;this.eng=eng;this.mat=mat;this.sum=sum;this.avg=avg;}
 	
+//------입력 함수
 	public int getUser() {
-		
-//------입력 관리	
 		input = new Scanner(System.in);
 		temp = input.nextLine();
+//------종료 조건
 		if(temp==null || temp.equals("9")) {
 			return 9;
 		}		
 		user = Integer.parseInt(temp);
-		user = user%4;
+		user = user%6;
 		return user;
 	}
+//------출력 함수
+	public void print() {
+		System.out.printf("이름 : %s/ 국어 점수 :  %3d점/ 영어 점수 : %3d점/ 수학 점수 : %3d점/ 총점 : %3d점/ 평균 : %3d\n",name,kor,eng,mat,sum,avg);
+	}
+
+//------수정 함수
 	public void update(String name,int kor,int eng, int mat) {
 		this.name=name;this.kor=kor;this.eng=eng;this.mat=mat;sumCalc();avgCalc();
 	}
-//	public void setNKEM(int num,String name,int kor,int eng, int mat) {	
-//		this.num=num;this.name=name;this.kor=kor;this.eng=eng;this.mat=mat;sumCalc();avgCalc();}  
-	
-	public String getNKEM() {
-		String m=this.num+this.name+" / "+this.kor+" / "+this.eng+" / "+this.mat+" / "+sum+" / "+avg+"\n";
-		System.out.println(m);
-		return m;}
-	
-	public void setKorean(int korean) {						
-		this.kor=korean;
-		sumCalc();avgCalc();}  
-	public int getKorean() {return kor;} 					
-	
-	public void setEnglish(int english) {						
-		this.eng=english;
-		sumCalc();avgCalc();}  
-	public int getEnglish() {return eng;} 					
-	
-	public void setMath(int math) {						
-		this.mat=math;
-		sumCalc();avgCalc();}  
-	public int getMath() {return mat;}	
-	
+//------합계 계산 함수
 	public void sumCalc(){
 		sum=kor+eng+mat;
 	}
+//------평균 계산 함수
 	public void avgCalc() {
 		avg=sum/3;
 	}
-	public void print() {
-		System.out.println("이름 : "+this.name+" 국어 점수 : "+this.kor+" 점/ 영어 점수 : "+this.eng+"점/ 수학 점수 : "+this.mat+" 점/ 총점 : "+sum+"/ 평균 : "+avg);
-	}
-	
+//------각각의 과목의 점수 가져오고 출력하는 함수
+	//국어
+	public void setKorean(int korean) {	
+		if(kor>100) kor=100;
+		this.kor=korean;
+		sumCalc();avgCalc();}  
+	public int getKorean() {return kor;} 					
+	//영어
+	public void setEnglish(int english) {
+		if(eng>100) eng=100;
+		this.eng=english;
+		sumCalc();avgCalc();}  
+	public int getEnglish() {return eng;} 					
+	//수학
+	public void setMath(int math) {	
+		if(mat>100) mat=100;
+		this.mat=math;
+		sumCalc();avgCalc();}  
+	public int getMath() {return mat;}
+//------이름 가져오는 함수	
+	public String getName() {return name;}
+//------평균 가져오는 함수	
+	public int getAvg() {return avg;}
 }
