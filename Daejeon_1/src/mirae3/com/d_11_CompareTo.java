@@ -2,7 +2,7 @@ package mirae3.com;
 //10>2
 //문자 "abc">"bcf"
 //클래스를 비교하기 위해
-class Student17 implements Comparable<Student17>{ // Comparable을 implements하면 compareTo함수를 실행, // < > :  일반화 프로그램으로 구현되어 < >사용 //Comparable<Student17> : 데이터 타입
+class Student17 implements Comparable<Student17>{ // Comparable을 implements하면 compareTo함수를 실행 // < > :  일반화 프로그램으로 구현되어 < >사용 //Comparable<Student17> : 데이터 타입
 	int rollno;
 	String name;
 	int age;
