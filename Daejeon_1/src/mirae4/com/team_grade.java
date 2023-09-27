@@ -21,8 +21,8 @@ class Grade{
 	}
 }
 public class team_grade {
+	static Scanner input = new Scanner(System.in);
 	public static void Create(ArrayList<Grade> grd) {
-		Scanner input = new Scanner(System.in);
 		System.out.println("입력 메뉴가 선택되었습니다...");
 		for(int i=0;i<3;i++) {
 			int num=Integer.parseInt(input.nextLine());
@@ -43,9 +43,7 @@ public class team_grade {
 		}
 	}
 	public static void Update(ArrayList<Grade> grd) {
-		Scanner input = new Scanner(System.in);
 		System.out.println("수정 메뉴가 선택되었습니다...");
-		input.nextLine();
 		System.out.print("수정할 인덱스 번호를 입력하시오 : ");
 		int index=(Integer.parseInt(input.nextLine()));
 		
@@ -58,42 +56,45 @@ public class team_grade {
 		grd.set(index+1,new Grade(num,name,kor,mat,eng));
 	}
 	public static void Remove(ArrayList<Grade> grd) {
-		Scanner input = new Scanner(System.in);
 		System.out.println("삭제 메뉴가 선택되었습니다...");
 		System.out.print("삭제할 인덱스 번호를 입력하시오 : ");
 		int index=Integer.parseInt(input.nextLine());
-		grd.remove(index+1);
+		grd.remove(index-1);
 	}
 	public static void Menu() {
-		Scanner input = new Scanner(System.in);
 		ArrayList<Grade> grd = new ArrayList<Grade>();
 		while(true) {
 			System.out.println("입력[1], 출력[2], 수정[3] 삭제[4] 중 선택 | 종료[9]");
 			int sel=Integer.parseInt(input.nextLine());
-//---------------종료[9]
+			
 			if(sel==9) {
 				System.out.println("종료합니다...");break;
 			}
-//---------------입력[1]		
-			if(sel==1) {
-				team_grade.Create(grd);
-			}
-//---------------출력[2]
-			if(sel==2) {
-				team_grade.Read(grd);
-			}
-//---------------수정[3]
-			if(sel==3) {
-				team_grade.Update(grd);
-			}
-//---------------삭제[4]
-			if(sel==4) {
-				team_grade.Remove(grd);
+			switch(sel) {
+				case 1:
+					Create(grd);
+					break;
+				
+				case 2:
+					Read(grd);
+					break;
+				
+				case 3:
+					Update(grd);
+					break;
+				
+				case 4:
+					Remove(grd);
+					break;
+					
+				default:
+					System.out.println("잘못 입력하셨습니다.");
+					break;	
 			}
 		}
 	}
 	public static void main(String[] args) {
-		Scanner input = new Scanner(System.in);
-		team_grade.Menu();		
+		ArrayList<Grade> grd = new ArrayList<Grade>();
+		Menu();
 	}
 }
