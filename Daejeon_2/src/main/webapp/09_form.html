@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<from action="loginAction"> <!-- action을 만드는게 장고나 파이썬으로 만들어야 데이터를 가지고 form에게 가라-->
+		<table>
+			<tr>
+				<td><labbel for="email">이메일</labbel></td>
+				<td><input type="text" id=email name="email" /></td>
+			</tr>
+			<tr>
+				<td><labbel for="pwd">비밀번호</labbel></td>
+				<td><input type="password" id=pwd name="pwd" /></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<fieldset>
+						<legend>취미 정보 선택</legend>
+						<label><input type="checkbox" name="hobby" value="tennis" />테니스</label>
+						<label><input type="checkbox" name="hobby" value="piano" />피아노</label>
+						<label><input type="checkbox" name="hobby" value="etc" />기타등등</label>
+					</fieldset>
+				</td>
+		</tr>
+		<td></td>
+		<td><button type="submit">로그인</button></td>
+		</table>
+	</from>
+	<a href="01_first.html">hello</a> <!-- 상대 주소 -->
+	<a href="http://daum.net">daum</a> <!-- 절대 주소 -->
+</body>
+</html>
