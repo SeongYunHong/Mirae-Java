@@ -1,0 +1,124 @@
+<html>
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>jQuery UI Accordion - Default functionality</title>
+   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+   <link rel="stylesheet" href="/resources/demos/style.css">
+   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+   <script>
+      $(function () {
+         $("#accordion").accordion();
+      });
+   </script>
+</head>
+
+<body>
+
+   <div id="accordion">
+      <h3>입력</h3>
+      <div style="">
+         <form action="LogServlet">
+            <table width="40%" border="1">
+               <caption>
+                  <h3>회원가입</h3>
+               </caption>
+               <tr>
+                  <th width="30%">아이디</th>
+                  <td width="70%" align="center">
+                     <input type="text" name="userID" size="27%" />
+                  </td>
+               </tr>
+               <tr>
+                  <th width="30%">비번</th>
+                  <td width="70%" align="center">
+                     <input type="password" name="password" size="27%" />
+                  </td>
+               </tr>
+            </table>
+            <br />
+            <table width="40%">
+               <tr>
+                  <td align="right">
+                     <!-- action에 insert를 넣어서 StProcess에 전달 -->
+                     <input type="hidden" id="action" name="action" value="insert">
+                     <input type="submit" value="학생 추가" />
+                  </td>
+               </tr>
+            </table>
+         </form>
+      </div>
+      
+      <h3>출력</h3>
+      <div>
+         <form action="SungjukServlet">
+            <input type="submit" value="로그인하기">
+            <input type="hidden" name="action" value="select">
+         </form>
+      </div>
+      
+      <h3>수정</h3>
+      <div>
+         <form action="LogServlet">
+            <table width="40%" border="1">
+               <caption>
+                  <h3>수정</h3>
+               </caption>
+               <tr>
+                  <th width="30%">아이디</th>
+                  <td width="70%" align="center">
+                     <input type="text" name="userID" size="27%">
+                  </td>
+               </tr>
+               <tr>
+                  <th width="30%">비번</th>
+                  <td width="70%" align="center">
+                     <input type="password" name="password" size="27%">
+                  </td>
+               </tr>               
+            </table>
+            <br />
+            <table width="40%">
+               <tr>
+                  <td align="right">
+                     <input type="hidden" id="action" name="action" value="update">
+                     <input type="submit" value="수정">
+                  </td>
+               </tr>
+            </table>
+         </form>
+      </div>
+      
+      <h3>삭제</h3>
+      <div>
+         <form action="LogServlet">
+            <table width="40%" border="1">
+               <caption>
+                  <h3>삭제</h3>
+               </caption>
+               <tr>
+                  <th width="30%">아이디</th>
+                  <td width="70%" align="center">
+                     <input type="text" name="userID" size="27%">
+                  </td>
+               </tr>
+            </table>
+            <br />
+            <table width="40%">
+               <tr>
+                  <td align="right">
+                     <input type="hidden" id="action" name="action" value="delete">
+                     <input type="submit" value="삭제">
+                  </td>
+               </tr>
+            </table>
+         </form>
+      </div>
+   </div>
+
+
+</body>
+
+</html>
